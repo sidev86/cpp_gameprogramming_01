@@ -1,0 +1,64 @@
+PROGRAM SPECIFICATIONS
+
+In questo assignment scriverai un programma C++/SFML che leggerà la descrizione di figure geometriche da un file di configurazione, e poi disegnerà queste figure a schermo. Ogni figura avrà nome, posizione, velocità, colore così come delle proprietà uniche per ogni tipologia di figura. Per esempio un rettangolo avrà delle proprietà di larghezza e altezza ed un cerchio avrà la proprietà raggio. Per questo assignment, la posizione di una figura fa riferimento all'angolo in alto a sinistra della figura come stabilito di default in SFML.
+
+Queste figure devono inoltre rimbalzare ai lati della finestra che le contiene. Puoi assumere che tutte le figure saranno sempre configurate per partire interamente all'interno della finestra e non ti devi preoccupare di cosa succede se partono al di fuori della finestra. 
+Il nome di ogni figura dovrebbe essere disegnato nell'esatto centro della figura della dimensione e colore della font specificata nel file.
+
+Devi poi implementare un interfaccia ImGui che sia in grado di:
+- Dare una lista di tutte le figure e selezionare una di esse per configurare le sue proprietà
+- Checkbox che determina se disegnare o meno la figura 
+- Slider per cambiare la dimensione della figura
+- Slider per cambiare velocità della figura 
+- Cambiare colore della figura
+- Cambiare nome della figura
+
+Ti viene dato un file di configurazione di esempio (config.txt) che può essere modificato e il programma deve leggere i dati contenuti in questo file e funzionare correttamente.
+Le linee di configurazione del file possono essere le seguenti: 
+
+Window W H
+- Questa linea dichiare le dimensioni della finestra SFML
+
+Font F S R G B
+- Questa linea definisce il font che verrà utilizzato per scrivere testo all'interno del programma
+  F = Font file				std::string
+  S = Font size				int
+  RGB = RGB Color 			int, int, int
+  
+Rectangle N X Y SX SY R G B W H 
+- Definisce un rettangolo con i parametri: 
+  N = Shape name			std::string
+  X Y = posizione iniziale x,y		float, float
+  SX SX = velocità iniziale sx,sy	float, float
+  RGB = RGB Color 			int, int, int
+  W H = larghezza, altezza rettangolo 	float, float
+  
+Circle N X Y SX SY R G B R 
+- Definisce un cerchio con i parametri:
+  N = Shape name			std::string
+  X Y = posizione iniziale x,y		float, float
+  SX SY = velocità iniziale sx,sy	float, float
+  RGB = RGB Color			int, int, int
+  R = raggio				float
+  
+---------------------------------------------------------------------------------------------------
+
+SUGGERIMENTI PER LO SVOLGIMENTO
+
+- Per memorizzare un numero arbitrario di figure dal file di configurazione devi memorizzarli in un container. E' consigliato utilizzare std::vector
+
+
+- Considera la creazione di una classe o struct custom che memorizza tutte le proprietà della figura che non sono memorizzate all'interno della classe sf::Shape
+esempio: velocità, nome ecc...
+
+- Una figura toccherà il lato della finestra se il bounding rectangle entrà in contatto con esso. Il bounding rectangle può essere ottenuto con la funzione:
+	shape.getLocalBounds() -> dà la posizione local del rettangolo. local significa che la sua posizione viene calcolata rispetto alla posizione della figura (shape.getPosition())
+	shape.getGlobalBounds() -> prenderà in considerazione qualunque dimensione, traslazione ecc... che viene applicata alla figura. Può essere utile per lo scaling da UI
+
+- In maniera simile il bounding rectangle di un elemento sf::Text può essere recuperato con il comando text.getLocalBounds(), il quale ti servirà per centrare il testo in maniera appropriata all'interno della figura
+
+- Utilizzare lo standard C++ per la lettura di un file (std::ifstream) e non lo standard C.
+	
+
+
+

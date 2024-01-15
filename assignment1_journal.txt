@@ -1,0 +1,58 @@
+02/01/24
+
+TODO
+- Andare a rivedere la sessione live coding per capire come leggere dal file i valori
+- Consultare documentazione su imgui per creazione dei vari elementi dell'interfaccia
+
+
+04/01/24
+
+Elementi Imgui da inserire:
+
+1. Lista delle figure presenti
+2. Checkbox "Draw shape"
+3. Slider dimensione figura
+4. Slider velocità figura 
+5. Impostazione colore
+4. TextBox per modifica nome figura
+	
+
+DONE 
+- ImGui Menu (non legge ancora valori effettivi)
+
+TODO
+- Lettura dati delle figure da file
+- Visualizzazione in ImGui dei valori letti
+
+
+10/01/24
+
+DONE
+- Lettura valori da file config.txt + stampa
+
+TODO
+- Prendere il codice sviluppato a parte per la lettura di dati da file e integrarlo all'interno del codice dell'assignment. 
+- Provare a leggere valori di una figura e disegnare la figura. 
+- Leggere valori di configurazione per dimensioni finestra e visualizzare la finestra secondo le dimensioni fissate nel file di configurazione.
+
+
+11/01/24
+
+DONE
+- Disegna la figura leggendo una riga di configurazione di una figura
+- Legge impostazioni di risoluzione e imposta la finestra a quelle dimensioni
+
+TODO
+- Leggere valori di più figure ciclicamente e disegnare tutte le figure in file config (cerchi e rettangoli)
+- Leggere e impostare valori di colore RGB per ogni figura
+
+
+12/01/24
+
+DONE
+- Leggere e impostare valori di colore RGB alla figura
+
+TODO
+- Disegnare tutte le figure salvate nell array shapes
+
+
